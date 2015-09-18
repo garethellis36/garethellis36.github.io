@@ -1,0 +1,15 @@
+# Site settings
+title: Idiot, slow down - Gareth's web dev blog
+description: > # this means to ignore newlines until "baseurl:"
+  I am Gareth Ellis, a web developer from near Oxford, UK, and this is my blog of web developery goodness.
+  I haven't been a professional developer for long, so this is my attempt to practice some technical writing
+  and put down some things I have learned and some ideas I have come up with.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: garethellis
+github_username:  garethellis36
+phpmentoring_profile: http://app.phpmentoring.org/profile/98
+
+# Build settings
+markdown: kramdown
+excerpt_separator: ""

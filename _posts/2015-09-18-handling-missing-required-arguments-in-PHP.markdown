@@ -2,6 +2,7 @@
 layout: post
 title:  "Handling missing required arguments in PHP"
 date:   2015-09-18 16:30:47
+comments:   true
 categories: php
 ---
 As any PHP developer knows, PHP handles missing arguments in its own idiosyncratic way. That is, if you call a function

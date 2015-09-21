@@ -2,6 +2,7 @@
 layout: post
 title:  "Fun with CakePHP named parameters and UTF-8"
 date:   2015-09-21 15:55:01
+comments:   true
 categories: php
 ---
 At work, we have various pages in our main application which list various data in table format. At the top of these pages

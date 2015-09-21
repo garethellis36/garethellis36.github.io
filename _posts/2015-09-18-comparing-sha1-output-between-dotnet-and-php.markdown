@@ -2,6 +2,7 @@
 layout: post
 title:  "Comparing SHA1 output between .NET and PHP"
 date:   2015-09-18 17:30:47
+comments:   true
 categories: php
 ---
 I have recently been working on a PHP library to integrate a PHP application with a variety of services via a SOAP API. 

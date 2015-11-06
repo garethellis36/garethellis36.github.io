@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "CakePHP email queues: the return"
-date:   2015-11-05 15:17:00
+date:   2015-11-06 17:00:00
 comments:   true
-categories: php, cakephp, message queues
+categories: php cakephp
 ---
-Yesterday I wrote about [how I implemented a simple message queue-like approach for handling emails in CakePHP 2](/php/2015/11/05/implementing-a-simple-email-queue-system-in-cakephp2.html). Today I 
+Yesterday I wrote about [how I implemented a simple message queue-like approach for handling emails in CakePHP 2](/php/cakephp/2015/11/05/implementing-a-simple-email-queue-system-in-cakephp2.html). Today I 
 want to share some lessons I learned post-implementation and some changes I had to make to my classes.
 
 The first issue occurred when a user tried to send an email with a couple of large attachments (several MB). By default, 
@@ -27,10 +27,12 @@ Our app was already using an extended version of CakeEmail called `CustomEmail`,
   
 {% highlight php %}
 <?php
-protected $_content;
+App::uses("CakeEmail", "Network/Email");
 
 class CustomEmail extends CakeEmail
 {
+    protected $_content;
+    
     public function send($content = null)
     {
         $transportClass = $this->transportClass();
@@ -44,6 +46,11 @@ class CustomEmail extends CakeEmail
 
         return parent::send($content);
     }
+    
+    public function getContent()
+    {
+        return $this->_content;
+    }
 }
 {% endhighlight %}
 
@@ -52,8 +59,9 @@ is using `DbQueueTransport` rather than `SmtpTransport` (or anything else for th
 usual send() routine and goes straight to the send method of our `DbQueueTransport` class (see previous post for this). 
 That's it! I found when testing this on my development environment that sending an email with a 4MB attachment and a long 
  message body resulted in a stored string of more than 6MB; using this method the stored value was far smaller - ~200KB.
+ Most importantly, when the worker retriever the email later, it sent it with the attachments successfully.
  
-You may notice that I've also added a protected property `$_content` to this custom class and set it before calling send 
+You may notice that I've also added a protected property `$_content` to this custom class (along with a getter method) and set it before calling send 
 on the transport class. This is to address the second issue I encountered. You may recall that in my original post I had the following code
  in the worker class:
 
@@ -74,12 +82,12 @@ class DbQueuedEmailWorkerShell extends AppShell
 {% endhighlight %}
 
 The reason for these two lines of code was simple: you can call `CakeEmail::send()` with or without a parameter `$content`.
-Most of the time you will want to build a pretty HTML email and you would use the `tempate()` method for that. But for some
-very short notifications it can be useful to just do something like `CakeEmail::send("Your message here"). If you were to call
+Most of the time you will want to build a pretty HTML email and you would use the `tempate()` method for that, calling `send()` without a parameter. But for some
+very short notifications it can be useful to just do something like `CakeEmail::send("Your message here")`. If you were to call
 `$email->send()` in the worker without passing in the content parameter, you would lose "Your message here" completely.
 
 However, I discovered that `CakeEmail::message()` returns more than simply what you pass in as the parameter to `send()`; 
-if you are *also* attaching files, `message()` returns the "content" of that files and you end up with an email full of 
+if you are *also* attaching files, `message()` returns the "content" of those files and you end up with an email full of 
 garbled junk data that is meaningless to the sender or recipient.
 
 To solve this, I added the `$_content` property to `CustomEmail` and then set it using the `$content` value passed in to 

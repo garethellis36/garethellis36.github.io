@@ -3,7 +3,7 @@ layout: post
 title:  "Implementing a simple email queue system in CakePHP 2"
 date:   2015-11-05 15:17:00
 comments:   true
-categories: php, cakephp, message queues
+categories: php cakephp
 ---
 The principle application I manage and develop for on a day-to-day basis sends many hundreds of emails every day. Until recently, all of these emails were sent as part of the HTTP lifecycle; that is, a user would perform an action in their browser, the application would send an email, then the user would see an updated page in their browser.
 
@@ -248,3 +248,5 @@ I won't bother sharing this method here because it is very similar to the above:
 Once the code was deployed, all I had to do was set-up a scheduled task on the production server to run the worker at set intervals (I elected for every 20 seconds). I monitor the logging of failed messages and periodically run the method to process failed emails to make sure that every email gets through one way or another.
 
 This approach works really well and has saved me a lot of complaints from users when the SMTP server is having problems!
+
+**Important: I posted a [follow-up post highlighting some issues I faced post-deployment](/php/cakephp/2015/11/06/cakephp-email-queues-the-return.html). Please read it if you are planning to adopt this implementation!**

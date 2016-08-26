@@ -29,7 +29,8 @@ The Google rabbit hole eventually lead me to suspecting that OpCache
 was somehow involved. I enabled the PHP.ini directive `opcache.error_log`,
 and sure enough, there was an entry in this for each of the 500s that IIS
  was dishing out:
-```log
+ 
+```
 Base address marks unusable memory region. Please setup opcache.file_cache and opcache.file_cache_callback directives for more convenient Opcache usage.
 Attempt to access invalid address.
 ```

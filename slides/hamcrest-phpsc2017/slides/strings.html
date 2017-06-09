@@ -1,0 +1,11 @@
+<h3>String matchers</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+assertThat($someString, is(equalToIgnoringCase(“A sTrIng”)));
+
+assertThat($someString, containsString($subString));
+
+assertThat($someString, startsWith(“foo”));
+    </code>
+</pre>

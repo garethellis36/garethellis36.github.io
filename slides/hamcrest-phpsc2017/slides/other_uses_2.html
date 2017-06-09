@@ -1,0 +1,11 @@
+<h3>Other uses - matchers as callables</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+$array = ['Hello PHP South Coast', 'Hello Gareth', 'Goodbye :-('];
+$filtered = array_filter($array, startsWith(‘Hello’));
+
+var_dump($filtered);
+//[‘Hello PHP Oxford’, ‘Hello Gareth’]
+    </code>
+</pre>

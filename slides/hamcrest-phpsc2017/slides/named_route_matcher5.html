@@ -1,0 +1,27 @@
+<h5>You can (should!) test your own matchers</h5>
+<pre>
+    <code class="php" data-noescape data-trim>
+public function test_it_can_determine_if_router_has_a_given_route()
+{
+    $router = new Router(
+        resolve(Dispatcher::class), resolve(Container::class)
+    );
+    $router->get('/', function () {})->name("foo.bar");
+
+    assertThat($router, hasRoute("foo.bar"));
+}
+<span class="fragment">
+public function test_exception_message_contains_correct_router_description_with_no_routes()
+{
+    $this->expectException(AssertionError::class);
+    $this->expectExceptionMessageRegExp("/router has no routes/");
+
+    $router = new Router(
+        resolve(Dispatcher::class), resolve(Container::class)
+    );
+
+    assertThat($router, hasRoute("foo.bar"));
+}
+</span>
+    </code>
+</pre>

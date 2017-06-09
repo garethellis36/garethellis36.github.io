@@ -1,0 +1,27 @@
+<pre>
+    <code class="php" data-noescape data-trim>
+class NamedRouteMatcher implements Matcher
+{
+    public function describeMismatch($router, Description $description)
+    {
+        $routeCollection = $router->getRoutes();
+
+        $routeNames = [];
+        foreach ($routeCollection->getIterator() as $route) {
+            $routeNames[] = $route->getName();
+        }
+
+        if (!empty($routeNames)) {
+            $description->appendValueList(
+                "router has routes named: ", 
+                ", ", 
+                "", 
+                $routeNames
+            );
+        } else {
+            $description->appendText("router has no routes");
+        }
+    }
+}
+    </code>
+</pre>

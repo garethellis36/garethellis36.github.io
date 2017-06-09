@@ -1,0 +1,21 @@
+<pre>
+    <code class="php" data-noescape data-trim>
+class NamedRouteMatcher implements Matcher
+{
+    private $routeName;
+
+    public function __construct(string $routeName)
+    {
+        $this->routeName = $routeName;
+    }
+
+    public function matches($router)
+    {
+        $routeCollection = $router->getRoutes();
+        $routeCollection->refreshNameLookups();
+
+        return $routeCollection->hasNamedRoute($this->routeName);
+    }
+}
+    </code>
+</pre>

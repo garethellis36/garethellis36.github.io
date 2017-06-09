@@ -1,0 +1,16 @@
+<h3>Real world example</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+$food = $data_source->getFood();
+$fruit = [
+    'orange',
+    'apple',
+    'pear',
+];
+<span class='fragment'>
+$this->assertEquals(0, count(array_diff($food, $fruit)));
+$this->assertEquals(0, count(array_diff($fruit, $food)));
+</span>
+    </code>
+</pre>

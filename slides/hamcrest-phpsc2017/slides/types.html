@@ -1,0 +1,11 @@
+<h3>Type matchers</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+assertThat($object, is(anInstanceOf(SomeClass::class)));
+
+assertThat(“string”, is(stringValue()));
+
+assertThat(123, is(not(stringValue())));
+    </code>
+</pre>

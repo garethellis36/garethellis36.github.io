@@ -1,0 +1,22 @@
+<h3>How it works</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+assertThat(
+    $router,                    // <-- any value
+    hasRoute("posts.view")      // <-- an instance of a
+                                //     \Hamcrest\Matcher implementation
+);
+    </code>
+</pre>
+
+<span class="fragment">
+    <pre>
+        <code class="php" data-trim data-noescape>
+function hasRoute(string $routeName): NamedRouteMatcher
+{
+    return new NamedRouteMatcher($routeName);
+}
+        </code>
+    </pre>
+</span>

@@ -1,0 +1,28 @@
+<h3>Other uses - reduce boilerplate</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+function foo(array $arrayOfObjects)
+{
+    foreach ($arrayOfObjects as $object) {
+        if (! $object instanceof MyObject) {
+            throw new \InvalidArgumentException(
+                "Object is not an instance of " . MyObject::class
+            );
+        }
+    }
+}
+    </code>
+</pre>
+
+<span class="fragment">
+<pre>
+    <code class="php" data-trim data-noescape>
+function foo(array $arrayOfObjects)
+{
+    assertThat($arrayOfObjects, everyItem(is(anInstanceOf(MyObject::class)));
+    // throws \Hamcrest\AsssertionError if assertion fails
+}
+    </code>
+</pre>
+</span>

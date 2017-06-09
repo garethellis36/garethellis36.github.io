@@ -1,0 +1,27 @@
+<h3>
+    Wouldn't this be better?
+</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+$marshaller = new CrudRouteMarshaller(
+    $router, new RouteInflector(), Post::class
+);
+$marshaller->addViewRoute();
+
+assertThat($router, hasRoute("posts.view"));
+    </code>
+</pre>
+
+<span class="fragment">
+    <pre>
+    <code class="php" data-trim data-noescape>
+$marshaller = new CrudRouteMarshaller(
+    $router, new RouteInflector(), Post::class
+);
+$marshaller->addEditRoute();
+
+assertThat($router, hasRoute("posts.edit"));
+    </code>
+</pre>
+</span>

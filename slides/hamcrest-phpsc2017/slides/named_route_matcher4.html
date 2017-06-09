@@ -1,0 +1,20 @@
+<pre>
+    <code class="php" data-noescape data-trim>
+class NamedRouteMatcher implements Matcher
+{
+    private $routeName;
+
+    public function __construct(string $routeName)
+    {
+        $this->routeName = $routeName;
+    }
+
+    public function describeTo(Description $description)
+    {
+        $description->appendText(
+            "router to have named route \"{$this->routeName}\""
+        );
+    }
+}
+    </code>
+</pre>

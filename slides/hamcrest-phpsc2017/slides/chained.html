@@ -1,0 +1,10 @@
+<h3>Chained matchers</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+assertThat(
+	“a string”, 
+	is(both(stringValue())->andAlso(not(emptyString()))
+);
+    </code>
+</pre>

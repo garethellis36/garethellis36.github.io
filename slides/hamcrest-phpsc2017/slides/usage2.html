@@ -1,0 +1,24 @@
+<h3>Usage (optional)</h3>
+
+<pre>
+    <code class="bash" data-trim data-noescape>
+composer require --dev graze/hamcrest-test-listener
+    </code>
+</pre>
+
+
+<h3>phpunit.xml:</h3>
+
+<pre>
+    <code class="xml" data-trim>
+<phpunit>
+    <listeners>
+        <listener class="\Hamcrest\Adapter\PHPUnit\TestListener"></listener>
+    </listeners>
+</phpunit>
+    </code>
+</pre>
+
+<span class="fragment">
+    <img src="/img/assertioncount.png"/>
+</span>

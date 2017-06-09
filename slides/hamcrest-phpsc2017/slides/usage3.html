@@ -1,0 +1,26 @@
+<h3>
+    Importing Hamcrest global functions
+</h3>
+
+<h4>In your test bootstrap.php:</h4>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+require “vendors/hamcrest/hamcrest-php/hamcrest/Hamcrest.php”;
+    </code>
+</pre>
+
+<span class="fragment">
+    <h4>Or in composer.json:</h4>
+<pre>
+    <code class="json" data-trim data-noescape>
+{
+  “autoload”: {
+    “files”: [
+      “./vendors/hamcrest/hamcrest-php/hamcrest/Hamcrest.php”
+    ]
+  }
+}
+    </code>
+</pre>
+</span>

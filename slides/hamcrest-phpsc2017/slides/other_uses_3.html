@@ -1,0 +1,12 @@
+<h3>Other uses - with mocking libraries</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+//Mockery
+$mock->shouldReceive(“some_method”)
+	->with(anInstanceOf(MyObject::class));
+
+//Phake
+Phake::verify($mock)->some_method(anInstanceOf(MyObject::class));
+    </code>
+</pre>

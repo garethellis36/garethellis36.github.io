@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>From Hamfist to Hamcrest: more expressive tests in PHP</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style type="text/css">
+        .reveal pre {
+            box-shadow: none;
+        }
+
+        .reveal pre code {
+            max-height: none !important;
+            overflow: hidden !important;
+        }
+
+        .transparent-box {
+            border: 1px solid #ccc !important;
+            background: rgba(34, 34, 34, 0.7);
+            width: auto;
+            min-width: 70%;
+            margin: 0 auto !important;
+        }
+
+        #header {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        #header-right {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+        }
+
+        #footer-left {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            font-size: 0.6em;
+        }
+
+        .solid-in-progress {
+            color: #ffe317;
+        }
+
+        .solid-done {
+            color: #585858;
+        }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section data-external="slides/cover.html"></section>
+        <section data-external="slides/intro.html"></section>
+        <section data-external="slides/phpunit_vs_hamcrest.html"></section>
+        <section data-external="slides/real_world1.html"></section>
+        <section data-external="slides/real_world2.html"></section>
+
+        <section data-external="slides/tests_as_first_class_code.html"></section>
+
+        <section data-external="slides/numbers.html"></section>
+        <section data-external="slides/strings.html"></section>
+        <section data-external="slides/types.html"></section>
+        <section data-external="slides/inclusion_exclusion.html"></section>
+        <section data-external="slides/array.html"></section>
+        <section data-external="slides/chained.html"></section>
+
+        <section data-external="slides/usage1.html"></section>
+        <section data-external="slides/usage2.html"></section>
+        <section data-external="slides/usage3.html"></section>
+
+        <section data-external="slides/custom_matchers.html"></section>
+        <section data-external="slides/horrible_example.html"></section>
+        <section data-external="slides/improved_example.html"></section>
+
+        <section data-external="slides/error_message1.html"></section>
+        <section data-external="slides/error_message2.html"></section>
+
+        <section data-external="slides/assertThat.html"></section>
+        <section data-external="slides/named_route_matcher5.html"></section>
+        <section data-external="slides/named_route_matcher1.html"></section>
+        <section data-external="slides/named_route_matcher2.html"></section>
+        <section data-external="slides/named_route_matcher3.html"></section>
+        <section data-external="slides/named_route_matcher4.html"></section>
+
+        <section data-external="slides/other_uses_1.html"></section>
+        <section data-external="slides/other_uses_2.html"></section>
+        <section data-external="slides/other_uses_3.html"></section>
+
+        <section data-external="slides/thank_you.html"></section>
+
+
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/jquery-2.2.4.min.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {
+                src: 'plugin/external/external.js', condition: function () {
+                return !!document.querySelector('[data-external]');
+            }
+            },
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+
+//        width: "1400"
+    });
+
+</script>
+
+    <div id="hidden" style="display:none;">
+        <div id="header">
+            <div id="footer-left">Hamcrest PHP - @garethellis</div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var header = $('#header').html();
+    if (window.location.search.match(/print-pdf/gi)) {
+        Reveal.addEventListener('ready', function (event) {
+            $('.slide-background').append(header);
+        });
+    }
+    else {
+        $('div.reveal').append(header);
+    }
+</script>
+
+</body>
+</html>

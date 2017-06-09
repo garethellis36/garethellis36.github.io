@@ -1,0 +1,15 @@
+<h3>Real world example - with added ham</h3>
+
+<pre>
+    <code class="php" data-trim data-noescape>
+$food = $data_source->getFood();
+$fruit = [
+    'orange',
+    'apple',
+    'pear',
+];
+<span class='fragment'>
+assertThat($food, containsOnlyValuesFrom($fruit));
+</span>
+    </code>
+</pre>

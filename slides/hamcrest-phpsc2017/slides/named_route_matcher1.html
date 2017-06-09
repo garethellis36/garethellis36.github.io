@@ -1,0 +1,23 @@
+<pre>
+    <code class="php" data-noescape data-trim>
+class NamedRouteMatcher implements Matcher
+{
+    public function matches($router)
+    {
+        // assertThat() passes its first argument to this method
+        // matcher logic goes here
+        // method should return a bool
+    }
+
+    public function describeMismatch($router, Description $description)
+    {
+        // this method describes why the matcher failed (if it fails)
+    }
+
+    public function describeTo(Description $description)
+    {
+        // this method describes what the matcher was expecting
+    }
+}
+    </code>
+</pre>

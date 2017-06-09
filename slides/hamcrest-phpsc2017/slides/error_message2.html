@@ -1,0 +1,15 @@
+<pre>
+    <code class="php" data-trim data-noescape>
+assertThat($anEmptyRouterInstance, hasRoute("non_existent_route"));
+    </code>
+</pre>
+
+<span class="fragment">
+    <pre>
+        <code class="php" data-trim data-noescape>
+Uncaught Hamcrest\AssertionError: Expected: router to have route
+            named "non_existent_route"
+     but: router has no routes
+        </code>
+    </pre>
+</span>
